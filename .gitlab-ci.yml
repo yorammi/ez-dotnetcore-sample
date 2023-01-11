@@ -7,9 +7,9 @@ stages:
 build_job:
   stage: build
   script:
-    - dotnet build "dotnetcore-sample.sln" --configuration Release
+    - dotnet build "dotnetcore-sample.sln" --configuration Release  --no-restore
 
 test_job:
   stage: test
   script:
-    - dotnet test "dotnetcore-sample.sln" --configuration Release
+    - dotnet test "dotnetcore-sample.sln" --configuration Release --no-restore
