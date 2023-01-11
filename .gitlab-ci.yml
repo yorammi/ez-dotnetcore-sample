@@ -6,5 +6,6 @@ stages:
 build_job:
   stage: build
   script:
-    - dotnet build "dotnetcore-sample.sln"
-    - dotnet test "dotnetcore-sample.sln"
+    - dotnet restore 
+    - dotnet build
+    - dotnet test
