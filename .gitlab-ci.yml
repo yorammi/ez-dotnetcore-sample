@@ -1,11 +1,8 @@
-image: mcr.microsoft.com/dotnet/sdk
-
 stages:
   - build
 
-build_job:
+build:
   stage: build
   script:
-    - dotnet restore 
-    - dotnet build
-    - dotnet test
+    - dotnet build -c Release
+  image: mcr.microsoft.com/dotnet/core/sdk:3.1
