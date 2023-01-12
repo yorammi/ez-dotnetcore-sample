@@ -1,4 +1,4 @@
-image: mcr.microsoft.com/dotnet/core/sdk:3.1
+image: mcr.microsoft.com/dotnet/sdk:5.0-alpine
 
 stages:
   - build
@@ -17,11 +17,11 @@ build:
 test:
   stage: test
   script:
-    - 'dotnet test --test-adapter-path:. --logger:"junit;LogFilePath=..\artifacts\{assembly}-test-result.xml;MethodFormat=Class;FailureBodyFormat=Verbose"'
+    - 'dotnet test --test-adapter-path:. --logger:"junit;LogFilePath=$CI_PROJECT_DIR/junit/junit-test-result.xml;MethodFormat=Class;FailureBodyFormat=Verbose"'
   artifacts:
     when: always
     paths:
-      - ./**/*TestResults.xml
+      - ./**/*test-result.xml
     reports:
       junit:
-        - "./**/*TestResults.xml" 
+        - "./**/*test-result.xml" 
