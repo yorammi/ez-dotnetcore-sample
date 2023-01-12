@@ -1,4 +1,4 @@
-image: bitnami/dotnet:latest
+image: cwschroeder/dotnetsdk:7.0
 
 stages:
   - build
