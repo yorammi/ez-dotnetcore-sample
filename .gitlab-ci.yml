@@ -16,7 +16,7 @@ build:
 test:
   stage: test
   script:
-    - dotnet test -c Release -o testresults
+    - dotnet test -c Release -o testresults --logger "xunit"
   artifacts:
     paths:
       - testresults/
