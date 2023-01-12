@@ -1,9 +1,8 @@
-image: mcr.microsoft.com/dotnet/sdk
-
 stages:
   - build
 
-build_job:
+build:
   stage: build
   script:
-    - dotnet build "dotnetcore-sample.sln" --configuration Release
+    - dotnet build -c Release
+  image: mcr.microsoft.com/dotnet/core/sdk:3.1
