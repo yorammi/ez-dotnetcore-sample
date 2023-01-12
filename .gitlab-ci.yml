@@ -3,6 +3,7 @@ image: mcr.microsoft.com/dotnet/core/sdk:3.1
 stages:
   - build
   - test
+  - deploy
 
 build:
   stage: build
@@ -18,3 +19,11 @@ test:
   stage: test
   script:
     - dotnet test -c Release
+
+deploy:
+  stage: deploy
+  script:
+    - dotnet publish -c Release -o /app
+  environment:
+    name: production
+  
