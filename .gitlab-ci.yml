@@ -17,4 +17,9 @@ build:
 test:
   stage: test
   script:
-    - dotnet test -l:trx;LogFileName=testreport.trx
+    - dotnet test --logger "trx;LogFileName=testreport.trx"
+  after_script:
+    - trx2junit testreport.trx 
+  artifacts:
+    reports:
+      junit: src\$env:TESTPROJECT\Testresults\testreport.xml
