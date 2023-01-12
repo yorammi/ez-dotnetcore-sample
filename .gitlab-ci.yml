@@ -15,4 +15,4 @@ build:
 test:
   stage: test
   script:
-    - dotnet test -c Release
+    - dotnet test -c Release -o testresults
