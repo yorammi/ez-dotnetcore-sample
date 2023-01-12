@@ -13,7 +13,10 @@ build:
   artifacts:
     paths:
       - ./**/dotnetcore-sample.dll
+      - testresults
     expire_in: 1 day
+#    reports:
+#      junit: rspec.xml
 
 #test:
 #  stage: test
