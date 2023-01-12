@@ -8,20 +8,13 @@ build:
   stage: build
   script:
     - dotnet restore
-    - dotnet build -c Release
+    - dotnet build
   artifacts:
     paths:
-      - dotnetcore-tests/bin/Release/netcoreapp3.1/dotnetcore-sample.dll
+      - ./**/dotnetcore-sample.dll
     expire_in: 1 day
 
 test:
   stage: test
   script:
-    - 'dotnet test --test-adapter-path:. --logger:"junit;LogFilePath=$CI_PROJECT_DIR/nunit/junit-test-result.xml;MethodFormat=Class;FailureBodyFormat=Verbose"'
-  artifacts:
-    when: always
-    paths:
-      - ./**/*test-result.xml
-    reports:
-      junit:
-        - "./**/*test-result.xml" 
+    - dotnet test
