@@ -1,4 +1,4 @@
-image: mcr.microsoft.com/dotnet/sdk:5.0-alpine
+image: bitnami/dotnet:latest
 
 stages:
   - build
@@ -17,7 +17,7 @@ build:
 test:
   stage: test
   script:
-    - 'dotnet test --test-adapter-path:. --logger:"nunit;LogFilePath=$CI_PROJECT_DIR/nunit/nunit-test-result.xml;MethodFormat=Class;FailureBodyFormat=Verbose"'
+    - 'dotnet test --test-adapter-path:. --logger:"junit;LogFilePath=$CI_PROJECT_DIR/nunit/junit-test-result.xml;MethodFormat=Class;FailureBodyFormat=Verbose"'
   artifacts:
     when: always
     paths:
