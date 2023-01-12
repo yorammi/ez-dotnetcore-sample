@@ -1,4 +1,4 @@
-image: bitnami/dotnet-sdk:latest
+image: mcr.microsoft.com/dotnet/aspnet:7.0-alpine
 
 stages:
   - build
