@@ -20,7 +20,7 @@ test:
   artifacts:
     when: always
     paths:
-      - ../**/*test-result.xml
+      - ../artifacts
     expire_in: 1 day
     reports:
       junit:
