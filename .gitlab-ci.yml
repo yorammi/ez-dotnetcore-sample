@@ -9,7 +9,7 @@ build:
   script:
     - dotnet restore
     - dotnet build
-    - dotnet test --no-build
+    - dotnet test
   artifacts:
     paths:
       - ./**/dotnetcore-sample.dll
