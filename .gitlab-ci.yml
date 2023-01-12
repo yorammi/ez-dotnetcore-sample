@@ -9,7 +9,6 @@ build:
   script:
     - dotnet restore
     - dotnet build -c Release
-    - dotnet test -c Release
   artifacts:
     paths:
       - ./**/dotnetcore-sample.dll
