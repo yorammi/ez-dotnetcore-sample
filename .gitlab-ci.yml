@@ -10,7 +10,8 @@ build:
     - dotnet build -c Release
   artifacts:
     paths:
-      - bin/Release/
+      - bin/Release/netcoreapp3.1/
+    expire_in: 1 day
 
 test:
   stage: test
