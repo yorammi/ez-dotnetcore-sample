@@ -8,8 +8,8 @@ build:
   stage: build
   script:
     - dotnet restore
-    - dotnet build
-    - dotnet test
+    - dotnet build -c Release
+    - dotnet test -c Release -o testresults
   artifacts:
     paths:
       - ./**/dotnetcore-sample.dll
