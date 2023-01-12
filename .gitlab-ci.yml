@@ -2,19 +2,20 @@ image: bitnami/dotnet-sdk:latest
 
 stages:
   - build
-  - test
+#  - test
 
 build:
   stage: build
   script:
     - dotnet restore
     - dotnet build
+    - dotnet test --no-build
   artifacts:
     paths:
       - ./**/dotnetcore-sample.dll
     expire_in: 1 day
 
-test:
-  stage: test
-  script:
-    - dotnet test
+#test:
+#  stage: test
+#  script:
+#    - dotnet test
