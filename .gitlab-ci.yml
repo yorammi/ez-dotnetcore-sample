@@ -16,12 +16,12 @@ build:
 test:
   stage: test
   script:
-  - 'dotnet test --test-adapter-path:. --logger:"junit;LogFilePath=..\artifacts\{assembly}-test-result.xml;MethodFormat=Class;FailureBodyFormat=Verbose"'
+    - dotnet add package JunitXml.TestLogger --version 3.0.110
+    - dotnet test --configuration Release --filter "TestSuite=internal" --logger "junit;LogFilePath=..\artifacts\{assembly}-TestResults.xml"
   artifacts:
     when: always
     paths:
-      - ../artifacts
-    expire_in: 1 day
+      - ./**/*TestResults.xml
     reports:
       junit:
-        - ../**/*test-result.xml
+        - "./**/*TestResults.xml" 
