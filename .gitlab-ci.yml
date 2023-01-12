@@ -16,7 +16,7 @@ build:
 test:
   stage: test
   script:
-    - dotnet test -c Release -o testresults  --test-adapter-path:. --logger:SimpleLogger
+    - dotnet test -c Release -o testresults  --test-adapter-path:.
   artifacts:
     paths:
       - testresults/
