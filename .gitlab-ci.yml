@@ -17,4 +17,4 @@ build:
 test:
   stage: test
   script:
-    - dotnet test
+    - dotnet test -l:trx;LogFileName=./testsresults/results.xml
