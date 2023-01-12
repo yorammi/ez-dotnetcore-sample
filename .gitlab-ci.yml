@@ -16,7 +16,7 @@ build:
 test:
   stage: test
   script:
-    - dotnet test -c Release -o testresults  --test-adapter-path:. --logger:xunit
+    - dotnet test -c Release -o testresults  --test-adapter-path:. --logger:SimpleLogger
   artifacts:
     paths:
       - testresults/
