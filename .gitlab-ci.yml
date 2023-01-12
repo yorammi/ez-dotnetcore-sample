@@ -17,4 +17,4 @@ build:
 test:
   stage: test
   script:
-    - dotnet test --logger "junit"
+    - dotnet test
