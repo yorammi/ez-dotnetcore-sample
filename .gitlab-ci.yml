@@ -10,13 +10,17 @@ build:
     - dotnet build -c Release
   artifacts:
     paths:
-      - dotnetcore-tests/bin/Release/netcoreapp3.1/
+      - dotnetcore-tests/bin/Release/netcoreapp3.1/dotnetcore-sample.dll
     expire_in: 1 day
 
 test:
   stage: test
   script:
-    - dotnet test -c Release -o testresults  --test-adapter-path:.
+  - 'dotnet test --test-adapter-path:. --logger:"junit;LogFilePath=..\artifacts\{assembly}-test-result.xml;MethodFormat=Class;FailureBodyFormat=Verbose"'
   artifacts:
+    when: always
     paths:
-      - testresults/
+      - ./**/*test-result.xml
+    reports:
+      junit:
+        - ./**/*test-result.xml
