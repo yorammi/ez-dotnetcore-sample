@@ -1,8 +1,15 @@
 stages:
   - build
+  - test
 
 build:
   stage: build
   script:
     - dotnet build -c Release
+  image: mcr.microsoft.com/dotnet/core/sdk:3.1
+
+test:
+  stage: test
+  script:
+    - dotnet test -c Release
   image: mcr.microsoft.com/dotnet/core/sdk:3.1
