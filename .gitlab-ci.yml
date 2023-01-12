@@ -2,23 +2,20 @@ image: mcr.microsoft.com/dotnet/core/sdk:3.1
 
 stages:
   - build
-#  - test
+  - test
 
 build:
   stage: build
   script:
     - dotnet restore
     - dotnet build -c Release
-    - dotnet test -c Release -o testresults
+    - dotnet test -c Release
   artifacts:
     paths:
       - ./**/dotnetcore-sample.dll
-      - testresults
     expire_in: 1 day
-#    reports:
-#      junit: rspec.xml
 
-#test:
-#  stage: test
-#  script:
-#    - dotnet test
+test:
+  stage: test
+  script:
+    - dotnet test -c Release
