@@ -1,1 +1,4 @@
+example stage: # this is the name of the stage
+    script:
+        - put your script here
 
