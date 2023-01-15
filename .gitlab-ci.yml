@@ -1,4 +1,10 @@
-example stage: # this is the name of the stage
-    script:
-        - put your script here
+image: mcr.microsoft.com/dotnet/core/sdk:3.1
 
+stages:
+  - build
+
+build:
+  stage: build
+  script:
+    - echo this is a sample script
+  
