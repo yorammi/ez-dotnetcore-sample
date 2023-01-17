@@ -1,10 +1,12 @@
+# .GitLab-CI.yml keyword reference: https://docs.gitlab.com/ee/ci/yaml/
+# image to run .NET-core builds and applications:
 # image: mcr.microsoft.com/dotnet/core/sdk:3.1
 
 stages:
-  - build
+  - demo
 
-build:
-  stage: build
+demo:
+  stage: demo
   script:
-    - echo this is a sample script
+    - echo this is a demo stage
   
